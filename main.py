@@ -6,6 +6,21 @@ import json
 from waitress import serve
 
 
+# Instalamos las librerías para conexión con MongoDB
+import pymongo
+import certifi
+
+
+# Especificamos nuestra base de datos de MongoDB
+ca = certifi.where()
+client = pymongo.MongoClient("mongodb+srv://johnnlor:mperic82@cluster0.vamcmwn.mongodb.net/?retryWrites=true&w=majority")
+db = client.test
+print(db)
+
+baseDatos = client["async_team_data_base"]
+print(baseDatos.list_collection_names())
+
+
 # Cargar Servidor Inicial para Comprobar Funcionamiento
 app=Flask(__name__)
 cors = CORS(app)
