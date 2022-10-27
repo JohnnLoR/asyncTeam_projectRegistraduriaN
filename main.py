@@ -26,18 +26,21 @@ app=Flask(__name__)
 cors = CORS(app)
 
 
-def loadFileConfig():
-    with open('config.json') as f:
-        data = json.load(f)
-    return data
-
-
 # Realizamos una prueba al Servidor
 @app.route("/",methods=['GET'])
 def test():
     json = {}
     json["message"]="Server running... We are OnLine!!!"
     return jsonify(json)
+
+
+
+##### Cargar Configuración de la Base de Datos MongoDB #####
+
+def loadFileConfig():
+    with open('config.json') as f:
+        data = json.load(f)
+    return data
 
 
 if __name__=='__main__':
